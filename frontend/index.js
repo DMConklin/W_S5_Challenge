@@ -28,16 +28,13 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   //     "Grace Hopper"
   //   ]`
   // }
-
-    for (let l = 0; l < learners.length; l++) {
-      let learner = learners[l]
-      for (let m = 0; m < learner.mentors.length; m++) {
-        const mentor = mentors.find(mentor => mentor.id === learner.mentors[m])
-        learner.mentors[m] = `${mentor.firstName} ${mentor.lastName}`
+    for (let learner of learners) {
+      for (let [i,id] of learner.mentors.entries()){
+        const mentor = mentors.find(mentor => mentor.id === id)
+        learner.mentors[i] = `${mentor.firstName} ${mentor.lastName}`
       }
     }
-  // 
-  console.log(learners)
+    
   // 👆 ==================== TASK 2 END ====================== 👆
 
   const cardsContainer = document.querySelector('.cards')
